@@ -1,0 +1,20 @@
+.flight_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: black solid;
+  text-align: -webkit-center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.flight {
+  flex-basis: 28%;
+  margin: 1em;
+  padding: 1em;
+  border: inset;
+  background-color: white;
+}
+.flightHeader {
+}

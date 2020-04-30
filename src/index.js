@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Dashboard from "./Dashboard";
+
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
+import LetsFly from "./LetsFly";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Dashboard />
+    <LetsFly />
   </React.StrictMode>,
   document.getElementById("root")
 );
