@@ -1,15 +1,28 @@
 import React from "react";
-import { FlightPlanProvider } from "./components/FlightPlanProvider";
-import FlightList from "./components/FlightList";
-import "./components/Flight.css";
-import "./index.css";
+import { FlightPlanProvider } from "./components/flights/FlightPlanProvider";
 
+import FlightList from "./components/flights/FlightList";
+import "./components/flights/Flight.css";
+import "./index.css";
+import "./Layout.css";
+import { PilotsProvider } from "./components/Pilots/PilotsProvider";
+import { PilotsList } from "./components/Pilots/PilotsList";
+import { ProfileList } from "./components/profile/ProfileList";
 export default () => {
   return (
-    <div className="mainContainer">
-      <FlightPlanProvider>
-        <FlightList />
-      </FlightPlanProvider>
-    </div>
+    <>
+      <div className="header">
+        <h1>Let's FLY</h1>
+      </div>
+      <div className="mainContainer">
+        <FlightPlanProvider>
+          <PilotsProvider>
+            <ProfileList />
+            <FlightList />
+            <PilotsList />
+          </PilotsProvider>
+        </FlightPlanProvider>
+      </div>
+    </>
   );
 };
