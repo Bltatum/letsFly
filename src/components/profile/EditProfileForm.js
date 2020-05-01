@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { PilotsContext } from "../Pilots/PilotsProvider";
 
 export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
@@ -71,7 +71,6 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
           <div className="form-group">
             <label htmlFor="certificate">Certificate</label>
             <select
-              defaultValue=""
               name="certificate"
               id="certificate"
               className="form-control"

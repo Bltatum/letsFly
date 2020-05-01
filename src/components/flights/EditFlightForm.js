@@ -1,58 +1,52 @@
+import React, { useContext, useState } from "react";
 import { FlightPlanContext } from "./FlightPlanProvider";
-import React, { useRef, useContext } from "react";
 
-export default (props) => {
-  const { addFlightPlan } = useContext(FlightPlanContext);
+export const EditFlightForm = ({ yourFlights, toggleEdit }) => {
+  const { updateFlightPlan } = useContext(FlightPlanContext);
 
-  const tripName = useRef();
-  const date = useRef();
-  const depart = useRef();
-  const destination = useRef();
-  const departureTime = useRef();
-  const direct = useRef();
-  const purpose = useRef();
-  const coPilot = useRef();
-  //const flightPlanURL = useRef();
-  const planeType = useRef();
-  const endorsements = useRef();
-  const flightRules = useRef();
+  const [updatedFlight, setFlight] = useState(yourFlights);
 
-  const makeFlightPlan = () => {
-    const isDirect = direct.current.value;
-    const coPilotNeed = coPilot.current.value;
-    const flightRulesVFR = flightRules.current.value;
-    const userId = parseInt(localStorage.getItem("letsFly_user"));
+  const handleControlledInputChange = (event) => {
+    const newFlight = Object.assign({}, updatedFlight);
 
-    addFlightPlan({
-      tripName: tripName.current.value,
-      date: date.current.value,
-      depart: depart.current.value,
-      destination: destination.current.value,
-      departureTime: departureTime.current.value,
-      direct: isDirect,
-      purpose: purpose.current.value,
-      coPilot: coPilotNeed,
-      planeType: planeType.current.value,
-      endorsements: endorsements.current.value,
-      flightRulesVFR: flightRulesVFR,
-      pilotId: userId,
-    }).then(props.toggler);
+    newFlight[event.target.name] = event.target.value;
+
+    setFlight(newFlight);
+  };
+
+  const editFlight = () => {
+    updateFlightPlan({
+      id: updatedFlight.id,
+      tripName: updatedFlight.tripName,
+      date: updatedFlight.date,
+      depart: updatedFlight.depart,
+      destination: updatedFlight.destination,
+      departureTime: updatedFlight.departureTime,
+      direct: updatedFlight.direct,
+      purpose: updatedFlight.purpose,
+      coPilot: updatedFlight.coPilot,
+      planeType: updatedFlight.planeType,
+      endorsements: updatedFlight.endorsements,
+      flightRulesVFR: updatedFlight.flightRulesVFR,
+      pilotId: updatedFlight.pilotId,
+    }).then(toggleEdit);
   };
 
   return (
-    <form className="flightPlanForm">
+    <form className="form--UpdateFlight">
       <h2 className="flightPlanForm__title">Make Trip</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="tripName">Trip Description</label>
           <input
             type="text"
+            name="tripName"
             id="tripName"
-            ref={tripName}
             required
             autoFocus
             className="form-control"
-            placeholder="Trip Name"
+            defaultValue={yourFlights.tripName}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -60,11 +54,11 @@ export default (props) => {
         <div className="form-group">
           <label htmlFor="direct">IFR or VFR </label>
           <select
-            defaultValue=""
-            name="direct"
-            ref={flightRules}
+            name="flightRulesVFR"
             id="direct"
             className="form-control"
+            defaultValue={yourFlights.flightRulesVFR}
+            onChange={handleControlledInputChange}
           >
             <option value="0">Select a option</option>
             <option value="true">VFR</option>
@@ -76,12 +70,24 @@ export default (props) => {
       <fieldset>
         <div className="form-group">
           <div>Date and Time of Flight</div>
-          <input type="date" id="date" name="date" ref={date} />
+          <input
+            type="date"
+            id="date"
+            name="date"
+            defaultValue={yourFlights.tripName}
+            onChange={handleControlledInputChange}
+          />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <input type="time" id="time" name="time" ref={departureTime} />
+          <input
+            type="time"
+            id="time"
+            name="departureTime"
+            defaultValue={yourFlights.departureTime}
+            onChange={handleControlledInputChange}
+          />
         </div>
       </fieldset>
       <fieldset>
@@ -90,11 +96,12 @@ export default (props) => {
           <input
             type="text"
             id="depart"
-            ref={depart}
+            name="depart"
             required
             autoFocus
             className="form-control"
-            placeholder="Depart"
+            defaultValue={yourFlights.depart}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -104,11 +111,12 @@ export default (props) => {
           <input
             type="text"
             id="destination"
-            ref={destination}
+            name="destination"
             required
             autoFocus
             className="form-control"
-            placeholder="Destination"
+            defaultValue={yourFlights.destination}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -116,11 +124,11 @@ export default (props) => {
         <div className="form-group">
           <label htmlFor="direct">Direct Flight? </label>
           <select
-            defaultValue=""
             name="direct"
-            ref={direct}
             id="direct"
             className="form-control"
+            defaultValue={yourFlights.direct}
+            onChange={handleControlledInputChange}
           >
             <option value="0">Select a option</option>
             <option value="true">Yes</option>
@@ -135,11 +143,12 @@ export default (props) => {
           <input
             type="text"
             id="purpose"
-            ref={purpose}
+            name="purpose"
             required
             autoFocus
             className="form-control"
-            placeholder="Purpose of Flight"
+            defaultValue={yourFlights.purpose}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -147,11 +156,11 @@ export default (props) => {
         <div className="form-group">
           <label htmlFor="coPilot">Co-Pilot Need</label>
           <select
-            defaultValue=""
             name="coPilot"
-            ref={coPilot}
             id="coPilot"
             className="form-control"
+            defaultValue={yourFlights.coPilot}
+            onChange={handleControlledInputChange}
           >
             <option value="0">Select a option</option>
             <option value="Saftey Pilot">Saftey Pilot</option>
@@ -168,11 +177,12 @@ export default (props) => {
           <input
             type="text"
             id="planeType"
-            ref={planeType}
+            name="planeType"
             required
             autoFocus
             className="form-control"
-            placeholder="i.e Cessna 182, Piper Cherokee"
+            defaultValue={yourFlights.planeType}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -182,24 +192,24 @@ export default (props) => {
           <input
             type="text"
             id="endorsements"
-            ref={endorsements}
+            name="endorsements"
             required
             autoFocus
             className="form-control"
-            placeholder="i.e. high horsepower, taildragger, none"
+            defaultValue={yourFlights.endorsements}
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
-
       <button
         type="submit"
-        onClick={(evt) => {
-          evt.preventDefault(); // Prevent browser from submitting the form
-          makeFlightPlan();
-        }}
         className="btn btn-primary"
+        onClick={(evt) => {
+          evt.preventDefault();
+          editFlight();
+        }}
       >
-        Save Flight
+        Save Updates
       </button>
     </form>
   );

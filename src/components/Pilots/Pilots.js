@@ -1,5 +1,5 @@
-import React, { Component, useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import PilotDetails from "./PilotDetails";
 
 export default ({ pilot }) => {
@@ -17,7 +17,7 @@ export default ({ pilot }) => {
         </div>
 
         <Button
-          classname="button_pilotDetails"
+          className="button_pilotDetails"
           size="sm"
           color="primary"
           onClick={() => {

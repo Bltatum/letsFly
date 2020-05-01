@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   padding: 0.75rem;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: skyblue;
 }
 
@@ -21,4 +21,7 @@
   font-style: italic;
   font-size: xx-large;
   background-color: skyblue;
+}
+Button {
+  margin: 0.5rem;
 }
