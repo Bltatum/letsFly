@@ -1,5 +1,6 @@
 import React from "react";
 import { FlightPlanProvider } from "./components/flights/FlightPlanProvider";
+import { YourFlightsList } from "./components/yourFlights/YourFlightsList";
 
 import FlightList from "./components/flights/FlightList";
 import "./components/flights/Flight.css";
@@ -19,6 +20,7 @@ export default () => {
           <PilotsProvider>
             <ProfileList />
             <FlightList />
+            <YourFlightsList />
             <PilotsList />
           </PilotsProvider>
         </FlightPlanProvider>

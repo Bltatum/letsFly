@@ -1,5 +1,5 @@
-import React, { Component, useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React, { useContext, useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import { FlightPlanContext } from "./FlightPlanProvider";
 import FlightForm from "./FlightForm";
 import Flight from "./Flight";

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { PilotsContext } from "./PilotsProvider";
 import Pilots from "./Pilots";
 import "./Pilots.css";

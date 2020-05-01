@@ -1,4 +1,4 @@
-.flight_container {
+.yourFlights_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -7,16 +7,15 @@
   flex-direction: column;
   background-color: white;
   border-radius: 1rem;
+  align-self: baseline;
   margin: 2rem;
 }
 
-.flight {
+.yourFlight {
   flex-basis: 28%;
   margin: 1em;
   padding: 1em;
   border: inset;
   background-color: white;
   justify-content: space-around;
-}
-.flightHeader {
 }

@@ -1,5 +1,5 @@
-import React, { Component, useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import { EditProfileForm } from "./EditProfileForm";
 
 export default ({ yourProfile }) => {

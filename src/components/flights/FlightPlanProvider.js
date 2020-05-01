@@ -20,11 +20,21 @@ export const FlightPlanProvider = (props) => {
       body: JSON.stringify(flightPlan),
     }).then(getFlightPlan);
   };
+  const updateFlightPlan = (flight) => {
+    return fetch(`http://localhost:8088/flightPlan/${flight.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(flight),
+    }).then(getFlightPlan);
+  };
+  const deleteFlight = (flight) => {
+    return fetch(`http://localhost:8088/flightPlan/${flight.id}`, {
+      method: "DELETE",
+    }).then(getFlightPlan);
+  };
 
-  /*
-        Load all FlightPlan when the component is mounted. Ensure that
-        an empty array is the second argument to avoid infinite loop.
-    */
   useEffect(() => {
     getFlightPlan();
   }, []);
@@ -38,6 +48,8 @@ export const FlightPlanProvider = (props) => {
       value={{
         flightPlan,
         addFlightPlan,
+        updateFlightPlan,
+        deleteFlight,
       }}
     >
       {props.children}

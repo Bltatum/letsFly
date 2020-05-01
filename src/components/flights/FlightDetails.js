@@ -1,5 +1,4 @@
-import React, { Component, useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React from "react";
 
 export default ({ flight, pilot }) => (
   <section className="flight">

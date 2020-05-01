@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { PilotsContext } from "../Pilots/PilotsProvider";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import Profile from "./Profile";
 import "./Profile.css";
 
@@ -19,7 +19,7 @@ export const ProfileList = () => {
     <>
       <div className="profile_container">
         <Button
-          classname="button_profile"
+          className="button_profile"
           color="success"
           onClick={() => {
             toggle();

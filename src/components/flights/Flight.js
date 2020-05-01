@@ -1,5 +1,5 @@
-import React, { Component, useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import FlightDetails from "./FlightDetails";
 
 export default ({ flight, pilot }) => {
@@ -30,7 +30,7 @@ export default ({ flight, pilot }) => {
         </div>
 
         <Button
-          classname="button_flightDetails"
+          className="button_flightDetails"
           color="info"
           onClick={() => {
             toggle();
