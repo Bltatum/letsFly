@@ -1,25 +1,25 @@
-.coPilot_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: black solid;
-  justify-content: center;
+.pilots_container {
+  display: block;
+  overflow: auto;
+  height: 38rem;
+  width: 30%;
+
+  border: black solid 0.5px;
   text-align: center;
-  text-align: -webkit-center;
   flex-direction: column;
-  background-color: white;
-  border-radius: 1rem;
   align-self: baseline;
+  background-color: white;
   margin: 2rem;
 }
 
 .coPilots {
-  flex-basis: 28%;
+  /* flex-basis: 28%;
   margin: 1em;
-  padding: 1em;
+  padding: 1em; */
   background-color: white;
 }
 .pilot {
-  border: inset;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+}
+.pilotsHeader {
 }

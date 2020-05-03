@@ -1,8 +1,11 @@
 import React, { useContext, useState } from "react";
+
 import { PilotsContext } from "../Pilots/PilotsProvider";
 
 export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
   const { updatePilot } = useContext(PilotsContext);
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
 
   // Separate state variable to track the animal as it is edited
   const [updatedPilot, setPilot] = useState(yourProfile);
@@ -149,7 +152,7 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
           editPilot();
         }}
       >
-        Save Updates
+        <b>Save Updates</b>
       </button>
     </form>
   );

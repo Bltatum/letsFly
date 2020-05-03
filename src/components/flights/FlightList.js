@@ -1,5 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Card,
+  CardBody,
+  CardHeader,
+} from "reactstrap";
 import { FlightPlanContext } from "./FlightPlanProvider";
 import FlightForm from "./FlightForm";
 import Flight from "./Flight";
@@ -14,19 +22,24 @@ export default () => {
 
   return (
     <>
-      <div className="flight_container">
-        <h3 className="flightHeader">Flights</h3>
+      <Card className="flight_container">
+        <CardHeader className="text-center">
+          <h1 className="flightHeader">Flights</h1>
+          <Button onClick={toggle} color="secondary">
+            <b>Make New Flight</b>
+          </Button>
+        </CardHeader>
 
-        <div className="flights">
-          {flightPlan.map((flight) => {
-            const pilot = pilots.find((p) => p.id === flight.pilotId);
-            return <Flight key={flight.id} flight={flight} pilot={pilot} />;
-          })}
-        </div>
-        <Button onClick={toggle} color="info">
-          Make New Flight
-        </Button>
-      </div>
+        <CardBody className="text-center">
+          <div className="flights">
+            {flightPlan.map((flight) => {
+              const pilot = pilots.find((p) => p.id === flight.pilotId);
+              return <Flight key={flight.id} flight={flight} pilot={pilot} />;
+            })}
+          </div>
+        </CardBody>
+      </Card>
+
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>New Flight</ModalHeader>
         <ModalBody>

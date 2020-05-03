@@ -209,7 +209,7 @@ export const EditFlightForm = ({ yourFlights, toggleEdit }) => {
           editFlight();
         }}
       >
-        Save Updates
+        <b>Save Updates</b>
       </button>
     </form>
   );

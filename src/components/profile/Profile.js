@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { EditProfileForm } from "./EditProfileForm";
 
-export default ({ yourProfile }) => {
+export default ({ yourProfile, toggle }) => {
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
 
@@ -54,7 +54,7 @@ export default ({ yourProfile }) => {
             toggleEdit();
           }}
         >
-          Edit
+          <b>Edit Your Profile</b>
         </Button>
       </section>
 
@@ -66,6 +66,9 @@ export default ({ yourProfile }) => {
             toggleEdit={toggleEdit}
             {...selectedProfile}
           />
+          <Button color="secondary" onClick={toggleEdit}>
+            <b>Cancel</b>
+          </Button>
         </ModalBody>
       </Modal>
     </>

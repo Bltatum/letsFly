@@ -1,5 +1,14 @@
 import React, { useContext, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Card,
+  CardBody,
+  CardTitle,
+} from "reactstrap";
 import { FlightPlanContext } from "../flights/FlightPlanProvider";
 import { EditFlightForm } from "../flights/EditFlightForm";
 
@@ -10,56 +19,56 @@ export default ({ yourFlights }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  const [selectedYourFlight, setYourFlight] = useState({ yourFlights: {} });
+  const [selectedFlight, setFlight] = useState({ yourFlights: {} });
 
-  const userId = parseInt(localStorage.getItem("letsFly_user"));
-  const { flightPlan, deleteFlight } = useContext(FlightPlanContext);
+  const { deleteFlight } = useContext(FlightPlanContext);
 
   return (
     <>
-      <section className="yourFlight">
-        <h4 className="flight_name">{yourFlights.tripName}</h4>
-        <div className="flight_date">
+      <div>
+        <Card className="yourFlight">
+          <CardTitle>
+            <h5 className="flight_name">{yourFlights.tripName}</h5>
+          </CardTitle>
           <b>Date of Flight:</b> {yourFlights.date}
-        </div>
-        <div className="flight_depart">
           <b>Departing Airport:</b> {yourFlights.depart}
-        </div>
-        <div className="flight_destination">
           <b>Destination Airport:</b> {yourFlights.destination}
-        </div>
-
-        <Button
-          color="warning"
-          onClick={() => {
-            setYourFlight({ yourFlights });
-            toggleEdit();
-          }}
-        >
-          Edit
-        </Button>
-
-        <Button
-          color="danger"
-          onClick={() => {
-            deleteFlight(yourFlights.id);
-            toggle();
-          }}
-        >
-          Delete
-        </Button>
+          <Button
+            color="warning"
+            onClick={() => {
+              setFlight({ yourFlights });
+              toggleEdit();
+            }}
+          >
+            <b>Edit</b>
+          </Button>
+        </Card>
 
         <Modal isOpen={editModal} toggle={toggleEdit}>
           <ModalHeader toggle={toggleEdit}>Edit Flight</ModalHeader>
           <ModalBody>
             <EditFlightForm
-              key={selectedYourFlight.yourFlights.id}
+              key={selectedFlight.yourFlights.id}
               toggleEdit={toggleEdit}
-              {...selectedYourFlight}
+              {...selectedFlight}
             />
           </ModalBody>
+          <ModalFooter>
+            <Button
+              color="danger"
+              onClick={() => {
+                deleteFlight(selectedFlight.yourFlights.id);
+                toggle();
+              }}
+            >
+              <b>Delete Flight</b>
+            </Button>
+            <Button color="secondary" onClick={toggleEdit}>
+              <b>Cancel</b>
+            </Button>
+          </ModalFooter>
         </Modal>
-      </section>
+      </div>
     </>
   );
 };

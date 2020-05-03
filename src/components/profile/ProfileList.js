@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { PilotsContext } from "../Pilots/PilotsProvider";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import Profile from "./Profile";
 import "./Profile.css";
 
@@ -20,13 +20,13 @@ export const ProfileList = () => {
       <div className="profile_container">
         <Button
           className="button_profile"
-          color="success"
+          color="secondary"
           onClick={() => {
             toggle();
             setPilot({ yourProfile });
           }}
         >
-          Your Profile
+          <b>Your Profile</b>
         </Button>
 
         <Modal isOpen={modal} toggle={toggle}>
@@ -40,6 +40,11 @@ export const ProfileList = () => {
               key={selectedPilot.yourProfile.id}
               {...selectedPilot}
             />
+            <ModalFooter>
+              <Button color="secondary" onClick={toggle}>
+                <b>Close</b>
+              </Button>
+            </ModalFooter>
           </ModalBody>
         </Modal>
       </div>

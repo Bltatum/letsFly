@@ -1,21 +1,14 @@
-.yourFlights_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: black solid;
-  text-align: -webkit-center;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 1rem;
-  align-self: baseline;
-  margin: 2rem;
-}
-
 .yourFlight {
-  flex-basis: 28%;
-  margin: 1em;
-  padding: 1em;
-  border: inset;
-  background-color: white;
-  justify-content: space-around;
+  text-align: center;
+  margin-top: 1rem;
+}
+.yourFlights {
+  border: black solid 0.5px;
+  display: block;
+  overflow: auto;
+  height: 36rem;
+  width: 100%;
+}
+.yourFlightHeader {
+  text-align: center;
 }
