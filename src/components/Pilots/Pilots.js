@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Card,
+} from "reactstrap";
 import PilotDetails from "./PilotDetails";
 
 export default ({ pilot }) => {
@@ -10,22 +17,22 @@ export default ({ pilot }) => {
 
   return (
     <>
-      <section className="pilot">
-        <h4 className="pilot_name">{pilot.username}</h4>
-        <div className="pilot__base">
+      <Card className="pilot">
+        <h4>{pilot.username}</h4>
+        <div>
           <b>Base Airport:</b> {pilot.baseApt}
         </div>
 
         <Button
           className="button_pilotDetails"
           size="sm"
-          color="primary"
+          color="secondary"
           onClick={() => {
             toggle();
             setPilot({ pilot });
           }}
         >
-          Pilot Profile
+          <b>Pilot Profile</b>
         </Button>
 
         <Modal isOpen={modal} toggle={toggle}>
@@ -37,8 +44,13 @@ export default ({ pilot }) => {
               {...selectedPilot}
             />
           </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={toggle}>
+              <b>Close</b>
+            </Button>
+          </ModalFooter>
         </Modal>
-      </section>
+      </Card>
     </>
   );
 };

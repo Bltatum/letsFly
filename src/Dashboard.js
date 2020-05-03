@@ -1,4 +1,5 @@
 import React from "react";
+
 import { FlightPlanProvider } from "./components/flights/FlightPlanProvider";
 import { YourFlightsList } from "./components/yourFlights/YourFlightsList";
 
@@ -13,14 +14,18 @@ export default () => {
   return (
     <>
       <div className="header">
-        <h1>Let's FLY</h1>
+        <img
+          className="resize"
+          src=" http://i2.mirror.co.uk/incoming/article6498508.ece/ALTERNATES/s1200/Central-view-of-runway-at-Rome-Ciampino-airport-Italy.jpg"
+        ></img>
       </div>
+
       <div className="mainContainer">
         <FlightPlanProvider>
           <PilotsProvider>
             <ProfileList />
-            <FlightList />
             <YourFlightsList />
+            <FlightList />
             <PilotsList />
           </PilotsProvider>
         </FlightPlanProvider>

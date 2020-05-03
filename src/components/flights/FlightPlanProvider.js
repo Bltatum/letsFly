@@ -30,7 +30,7 @@ export const FlightPlanProvider = (props) => {
     }).then(getFlightPlan);
   };
   const deleteFlight = (flight) => {
-    return fetch(`http://localhost:8088/flightPlan/${flight.id}`, {
+    return fetch(`http://localhost:8088/flightPlan/${flight}`, {
       method: "DELETE",
     }).then(getFlightPlan);
   };
