@@ -6,6 +6,7 @@ import {
   ModalBody,
   ModalFooter,
   Card,
+  CardHeader,
 } from "reactstrap";
 import PilotDetails from "./PilotDetails";
 
@@ -18,7 +19,9 @@ export default ({ pilot }) => {
   return (
     <>
       <Card className="pilot">
-        <h4>{pilot.username}</h4>
+        <CardHeader>
+          <b className="pilotHeader">{pilot.username}</b>
+        </CardHeader>
         <div>
           <b>Base Airport:</b> {pilot.baseApt}
         </div>

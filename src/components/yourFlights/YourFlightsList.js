@@ -19,6 +19,15 @@ export const YourFlightsList = () => {
   const userId = parseInt(localStorage.getItem("letsFly_user"));
 
   const yourFlights = flightPlan.filter((f) => f.pilotId === userId);
+  const sortedByDateFlights = yourFlights.sort((a, b) => {
+    if (a.date < b.date) {
+      return -1;
+    }
+    if (a.date > b.date) {
+      return 1;
+    }
+    return 0;
+  });
 
   return (
     <>
@@ -30,7 +39,7 @@ export const YourFlightsList = () => {
           <Card>
             <CardBody className="yourFlights">
               <h3 className="yourFlightHeader">Your Upcoming Flights</h3>
-              {yourFlights.map((yourFlight) => {
+              {sortedByDateFlights.map((yourFlight) => {
                 return (
                   <YourFlights key={yourFlight.id} yourFlights={yourFlight} />
                 );

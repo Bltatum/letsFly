@@ -19,6 +19,15 @@ export default () => {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const sortedByDateFlights = flightPlan.sort((a, b) => {
+    if (a.date < b.date) {
+      return -1;
+    }
+    if (a.date > b.date) {
+      return 1;
+    }
+    return 0;
+  });
 
   return (
     <>
@@ -32,7 +41,7 @@ export default () => {
 
         <CardBody className="text-center">
           <div className="flights">
-            {flightPlan.map((flight) => {
+            {sortedByDateFlights.map((flight) => {
               const pilot = pilots.find((p) => p.id === flight.pilotId);
               return <Flight key={flight.id} flight={flight} pilot={pilot} />;
             })}
