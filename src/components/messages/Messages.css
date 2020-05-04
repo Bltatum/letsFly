@@ -1,4 +1,4 @@
-.pilots_container {
+.messages_container {
   display: block;
   overflow: auto;
   height: 38rem;
@@ -12,15 +12,12 @@
   margin: 2rem;
 }
 
-.coPilots {
+.messages {
   /* flex-basis: 28%;
-  margin: 1em;
-  padding: 1em; */
+    margin: 1em;
+    padding: 1em; */
   background-color: white;
 }
-.pilot {
+.message {
   margin-top: 0.5rem;
-}
-.pilotHeader {
-  flex-wrap: nowrap;
 }

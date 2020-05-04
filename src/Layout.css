@@ -31,3 +31,6 @@ img.resize {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+CardHeader {
+  flex-wrap: nowrap;
+}

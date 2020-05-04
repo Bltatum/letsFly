@@ -10,6 +10,8 @@ import "./Layout.css";
 import { PilotsProvider } from "./components/Pilots/PilotsProvider";
 import { PilotsList } from "./components/Pilots/PilotsList";
 import { ProfileList } from "./components/profile/ProfileList";
+import { MessageProvider } from "./components/messages/MessageProvider";
+import { MessagesList } from "./components/messages/MessageList";
 export default () => {
   return (
     <>
@@ -21,14 +23,17 @@ export default () => {
       </div>
 
       <div className="mainContainer">
-        <FlightPlanProvider>
-          <PilotsProvider>
-            <ProfileList />
-            <YourFlightsList />
-            <FlightList />
-            <PilotsList />
-          </PilotsProvider>
-        </FlightPlanProvider>
+        <MessageProvider>
+          <FlightPlanProvider>
+            <PilotsProvider>
+              <ProfileList />
+              <YourFlightsList />
+              <MessagesList />
+              <FlightList />
+              <PilotsList />
+            </PilotsProvider>
+          </FlightPlanProvider>
+        </MessageProvider>
       </div>
     </>
   );

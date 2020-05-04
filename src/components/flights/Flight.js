@@ -6,10 +6,11 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  CardHeader,
 } from "reactstrap";
 import FlightDetails from "./FlightDetails";
 
-export default ({ flight, pilot }) => {
+export default ({ flight, pilot, date }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -19,7 +20,9 @@ export default ({ flight, pilot }) => {
     <>
       <section className="flight">
         <Card>
-          <h3 className="flight_name">{flight.tripName}</h3>
+          <CardHeader>
+            <h3 className="flight_name">{flight.tripName}</h3>
+          </CardHeader>
           <h5 className="flight_pilot">Pilot: {pilot.name}</h5>
           <div className="flight_date">
             <b>Date:</b> {flight.date}

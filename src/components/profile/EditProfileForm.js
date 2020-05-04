@@ -150,6 +150,7 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
         onClick={(evt) => {
           evt.preventDefault();
           editPilot();
+          toggle();
         }}
       >
         <b>Save Updates</b>
