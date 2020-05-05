@@ -10,12 +10,9 @@ import {
   CardHeader,
 } from "reactstrap";
 import { MessageContext } from "./MessageProvider";
-import { PilotsContext } from "../Pilots/PilotsProvider";
 import MessageForm from "./MessageForm";
 
-export default ({ message, sender }) => {
-  const { pilots } = useContext(PilotsContext);
-  const { messages } = useContext(MessageContext);
+export default ({ message, sender, pilot }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -26,23 +23,29 @@ export default ({ message, sender }) => {
 
   const [selectedMessage, setMessage] = useState({ message: {} });
 
-  const { deleteMessage, addMessage, getMessages } = useContext(MessageContext);
-
-  const pilot = messages.map((m) => {
-    pilots.find((p) => p.id === m.senderId);
-  });
+  const { deleteMessage } = useContext(MessageContext);
 
   if (userId === message.userId) {
     return (
       <>
         <Card className="message">
           <CardHeader>
-            <b>From {sender.username}</b>
+            <b>From: {sender.username}</b>
           </CardHeader>
           <CardBody>
             <div>{message.message}</div>
             {/* <div> {new Date(message.date).toLocaleDateString()}</div> */}
           </CardBody>
+          <Button
+            size="sm"
+            color="secondary"
+            onClick={() => {
+              setMessage({ message });
+              toggleReply();
+            }}
+          >
+            <b>Reply</b>
+          </Button>
 
           <Button
             color="danger"
@@ -63,8 +66,8 @@ export default ({ message, sender }) => {
               key={selectedMessage.message.id}
               toggleReply={toggleReply}
               {...selectedMessage}
-              pilot={pilot}
-              sender={sender}
+              pilot={sender}
+              sender={pilot}
             />
           </ModalBody>
           <ModalFooter>
@@ -75,14 +78,15 @@ export default ({ message, sender }) => {
         </Modal>
       </>
     );
-  } else if (userId === sender.id) {
+  } else if (userId === message.senderId) {
     return (
       <>
         <Card className="message">
           <CardHeader>
-            <b>To: {sender.username}</b>
+            <b>To: {pilot.username}</b>
           </CardHeader>
           <CardBody>{message.message}</CardBody>
+
           <Button
             color="danger"
             size="sm"

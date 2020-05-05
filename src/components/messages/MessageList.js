@@ -46,8 +46,14 @@ export const MessagesList = () => {
           <div className="messages">
             {sortedByDateMessages.map((message) => {
               const sender = pilots.find((p) => p.id === message.senderId);
+              const pilot = pilots.find((p) => p.id === message.userId);
               return (
-                <Message key={message.id} message={message} sender={sender} />
+                <Message
+                  key={message.id}
+                  message={message}
+                  sender={sender}
+                  pilot={pilot}
+                />
               );
             })}
           </div>

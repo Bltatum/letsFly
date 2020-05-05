@@ -2,11 +2,12 @@ import React, { useRef, useContext } from "react";
 import { Button, Modal, ModalHeader, ModalBody, Form } from "reactstrap";
 import { MessageContext } from "./MessageProvider";
 
-export default (props, toggleReply) => {
+export default (props) => {
   const { addMessage } = useContext(MessageContext);
 
   const userId = parseInt(localStorage.getItem("letsFly_user"));
   const sender = props.sender;
+  const pilot = props.pilot;
   const date = Date.now();
 
   const message = useRef();
@@ -15,14 +16,14 @@ export default (props, toggleReply) => {
     addMessage({
       message: message.current.value,
       senderId: userId,
-      userId: sender.id,
+      userId: pilot.id,
       date: date,
     }).then(props.toggleReply);
   };
 
   return (
     <Form className="flightPlanForm">
-      <div> Your message to {sender.username}</div>
+      <div> Your message to {pilot.username}</div>
       <div className="form-group">
         <input
           type="text"
