@@ -23,6 +23,12 @@ export default ({ yourFlights }) => {
 
   const { deleteFlight } = useContext(FlightPlanContext);
 
+  const reverseDate = () => {
+    let date = yourFlights.date.split("-");
+    let newDate = date[1] + "-" + date[2] + "-" + date[0];
+    return newDate;
+  };
+
   return (
     <>
       <div>
@@ -30,7 +36,7 @@ export default ({ yourFlights }) => {
           <CardTitle>
             <h5 className="flight_name">{yourFlights.tripName}</h5>
           </CardTitle>
-          <b>Date of Flight:</b> {yourFlights.date}
+          <b>Date of Flight:</b> {reverseDate()}
           <b>Departing Airport:</b> {yourFlights.depart}
           <b>Destination Airport:</b> {yourFlights.destination}
           <Button

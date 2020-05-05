@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Card,
   CardImg,
@@ -29,6 +29,11 @@ export const YourFlightsList = () => {
     return 0;
   });
 
+  const [yourEditFlight, setFlight] = useState([]);
+  useEffect(() => {
+    setFlight(yourFlights);
+  }, [flightPlan]);
+
   return (
     <>
       <div className="yourFlights_container">
@@ -41,7 +46,11 @@ export const YourFlightsList = () => {
               <h3 className="yourFlightHeader">Your Upcoming Flights</h3>
               {sortedByDateFlights.map((yourFlight) => {
                 return (
-                  <YourFlights key={yourFlight.id} yourFlights={yourFlight} />
+                  <YourFlights
+                    key={yourFlight.id}
+                    yourFlights={yourFlight}
+                    yourEditFlight={yourEditFlight}
+                  />
                 );
               })}
             </CardBody>
