@@ -9,17 +9,18 @@ import {
   CardBody,
   CardHeader,
 } from "reactstrap";
-import { MessageContext } from "../messages/MessageProvider";
 import MessageForm from "../messages/MessageForm";
 
 export default ({ flight, pilot }) => {
-  const { addMessages } = useContext(MessageContext);
   const [replyModal, setReplyModal] = useState(false);
   const toggleReply = () => setReplyModal(!replyModal);
 
-  const userId = parseInt(localStorage.getItem("letsFly_user"));
-
   const [selectedFlight, setFlight] = useState({ flight: {} });
+  const reverseDate = () => {
+    let date = flight.date.split("-");
+    let newDate = date[1] + "-" + date[2] + "-" + date[0];
+    return newDate;
+  };
 
   return (
     <section className="flight">
@@ -28,7 +29,7 @@ export default ({ flight, pilot }) => {
         <b>Pilot:</b> {pilot.name}
       </h5>
       <div className="flight_date">
-        <b>Date of Flight:</b> {flight.date}
+        <b>Date of Flight:</b> {reverseDate()}
       </div>
       <div className="flight_time">
         <b>Departure Time:</b> {flight.departureTime}
@@ -56,6 +57,12 @@ export default ({ flight, pilot }) => {
       </div>
       <div className="flight_plane">
         <b>Plane Flying:</b> {flight.planeType}
+      </div>
+      <div className="flightplanlink">
+        <b>Flight Plan Link:</b>{" "}
+        <a href={flight.flightPlanUrl} target="_blank">
+          <b>Click</b>
+        </a>
       </div>
       <Button
         size="lg"

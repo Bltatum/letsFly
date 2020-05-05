@@ -10,11 +10,17 @@ import {
 } from "reactstrap";
 import FlightDetails from "./FlightDetails";
 
-export default ({ flight, pilot, date }) => {
+export default ({ flight, pilot }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   const [selectedFlight, setFlight] = useState({ flight: {}, pilot: null });
+
+  const reverseDate = () => {
+    let date = flight.date.split("-");
+    let newDate = date[1] + "-" + date[2] + "-" + date[0];
+    return newDate;
+  };
 
   return (
     <>
@@ -25,7 +31,7 @@ export default ({ flight, pilot, date }) => {
           </CardHeader>
           <h5 className="flight_pilot">Pilot: {pilot.name}</h5>
           <div className="flight_date">
-            <b>Date:</b> {flight.date}
+            <b>Date:</b> {reverseDate()}
           </div>
           <div className="flight_time">
             <b>Departure Time:</b> {flight.departureTime}

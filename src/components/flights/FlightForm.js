@@ -13,7 +13,7 @@ export default (props) => {
   const direct = useRef();
   const purpose = useRef();
   const coPilot = useRef();
-  //const flightPlanURL = useRef();
+  const flightPlanURL = useRef();
   const planeType = useRef();
   const endorsements = useRef();
   const flightRules = useRef();
@@ -22,6 +22,7 @@ export default (props) => {
     const isDirect = direct.current.value;
     const coPilotNeed = coPilot.current.value;
     const flightRulesVFR = flightRules.current.value;
+    const flightPlanLink = flightPlanURL.current.value;
     const userId = parseInt(localStorage.getItem("letsFly_user"));
 
     addFlightPlan({
@@ -37,6 +38,7 @@ export default (props) => {
       endorsements: endorsements.current.value,
       flightRulesVFR: flightRulesVFR,
       pilotId: userId,
+      flightPlanURL: flightPlanLink,
     }).then(props.toggler);
   };
 
@@ -177,6 +179,18 @@ export default (props) => {
           autoFocus
           className="form-control"
           placeholder="i.e. high horsepower, taildragger, none"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="flightPlan">Flight Plan</label>
+        <input
+          type="text"
+          id="flightPlan"
+          ref={flightPlanURL}
+          required
+          autoFocus
+          className="form-control"
+          placeholder="Paste link to flight plan here"
         />
       </div>
 
