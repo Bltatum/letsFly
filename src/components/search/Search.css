@@ -1,0 +1,21 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+}
+#searchTerms {
+  margin: 0.5rem;
+}
+.href {
+  color: #479cf7d3;
+  text-decoration: underline;
+}
+
+.href:hover {
+  color: #007bff;
+}
+
+.fakeLink:focus {
+  outline: 0;
+}

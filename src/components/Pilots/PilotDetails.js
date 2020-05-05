@@ -3,6 +3,9 @@ import React from "react";
 export default ({ pilot }) => (
   <section className="pilot_details">
     <h3 className="pilot_name">{pilot.name}</h3>
+    <div className="pilot_username">
+      <b>Username:</b> {pilot.username}
+    </div>
     <div className="pilot_email">
       <b>Email:</b> {pilot.email}
     </div>
@@ -14,7 +17,7 @@ export default ({ pilot }) => (
     </div>
 
     <div className="pilot_hours">
-      <b>Flight Hours:</b> {pilot.flightHours}
+      <b>Flight Hours:</b> {pilot.hours}
     </div>
     <div className="pilot_base">
       <b>Home Base Airport:</b> {pilot.baseApt}
