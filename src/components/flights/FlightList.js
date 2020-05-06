@@ -7,6 +7,7 @@ import {
   Card,
   CardBody,
   CardHeader,
+  ModalFooter,
 } from "reactstrap";
 import { FlightPlanContext } from "./FlightPlanProvider";
 import FlightForm from "./FlightForm";
@@ -55,6 +56,11 @@ export default () => {
         <ModalBody>
           <FlightForm toggler={toggle} />
         </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={toggle}>
+            <b>Close</b>
+          </Button>
+        </ModalFooter>
       </Modal>
     </>
   );
