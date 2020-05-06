@@ -9,7 +9,7 @@
   flex-direction: column;
   align-self: baseline;
   background-color: white;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .messages {
@@ -20,4 +20,12 @@
 }
 .message {
   margin-top: 0.5rem;
+}
+.replyBtn {
+  width: 6rem;
+  align-self: center;
+}
+.deleteBtn {
+  width: 5rem;
+  align-self: center;
 }

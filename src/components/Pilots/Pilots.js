@@ -22,12 +22,18 @@ export default ({ pilot }) => {
         <CardHeader>
           <b className="pilotHeader">{pilot.username}</b>
         </CardHeader>
+        <img
+          src={pilot.image}
+          style={{ width: "100px" }}
+          alt="profile pic"
+          className="profilePic"
+        />
         <div>
           <b>Base Airport:</b> {pilot.baseApt}
         </div>
 
         <Button
-          className="button_pilotDetails"
+          className="pilotBtn"
           size="sm"
           color="secondary"
           onClick={() => {

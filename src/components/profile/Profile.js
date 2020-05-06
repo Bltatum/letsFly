@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import { EditProfileForm } from "./EditProfileForm";
 
-export default ({ yourProfile, toggle }) => {
+export default ({ yourProfile }) => {
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
 
@@ -11,6 +11,11 @@ export default ({ yourProfile, toggle }) => {
   return (
     <>
       <section className="pilot_details">
+        <img
+          src={yourProfile.image}
+          style={{ width: "100px" }}
+          alt="profile pic"
+        />
         <div>
           <b>Username: </b>
           {yourProfile.username}
@@ -48,7 +53,7 @@ export default ({ yourProfile, toggle }) => {
         </div>
 
         <Button
-          color="info"
+          color="warning"
           onClick={() => {
             setProfile({ yourProfile });
             toggleEdit();

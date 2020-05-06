@@ -19,6 +19,7 @@ export default () => {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+
   const sortedByDateFlights = flightPlan.sort((a, b) => {
     if (a.date < b.date) {
       return -1;

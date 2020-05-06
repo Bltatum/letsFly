@@ -6,8 +6,7 @@ import {
   ModalBody,
   ModalFooter,
   Card,
-  CardBody,
-  CardTitle,
+  CardHeader,
 } from "reactstrap";
 import { FlightPlanContext } from "../flights/FlightPlanProvider";
 import { EditFlightForm } from "../flights/EditFlightForm";
@@ -33,13 +32,14 @@ export default ({ yourFlights }) => {
     <>
       <div>
         <Card className="yourFlight">
-          <CardTitle>
+          <CardHeader>
             <h5 className="flight_name">{yourFlights.tripName}</h5>
-          </CardTitle>
+          </CardHeader>
           <b>Date of Flight:</b> {reverseDate()}
           <b>Departing Airport:</b> {yourFlights.depart}
           <b>Destination Airport:</b> {yourFlights.destination}
           <Button
+            className="editBtn"
             color="warning"
             onClick={() => {
               setFlight({ yourFlights });

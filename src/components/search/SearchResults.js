@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { PilotsContext } from "../Pilots/PilotsProvider";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import PilotDetails from "../Pilots/PilotDetails";
-import Pilots from "../Pilots/Pilots";
 
 export const SearchResults = ({ searchTerms }) => {
   const { pilots } = useContext(PilotsContext);

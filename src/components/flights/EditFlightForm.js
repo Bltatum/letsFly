@@ -29,6 +29,7 @@ export const EditFlightForm = ({ yourFlights, toggleEdit }) => {
       endorsements: updatedFlight.endorsements,
       flightRulesVFR: updatedFlight.flightRulesVFR,
       pilotId: updatedFlight.pilotId,
+      flightPlanUrl: updatedFlight.flightPlanUrl,
     }).then(toggleEdit);
   };
 
@@ -201,6 +202,18 @@ export const EditFlightForm = ({ yourFlights, toggleEdit }) => {
           />
         </div>
       </fieldset>
+      <div className="form-group">
+        <label htmlFor="flightPlan">Flight Plan</label>
+        <input
+          type="text"
+          name="flightPlanUrl"
+          id="flightPlan"
+          required
+          autoFocus
+          className="form-control"
+          placeholder="Paste link to flight plan here"
+        />
+      </div>
       <button
         type="submit"
         className="btn btn-primary"

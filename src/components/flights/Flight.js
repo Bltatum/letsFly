@@ -47,7 +47,7 @@ export default ({ flight, pilot }) => {
           </div>
 
           <Button
-            className="button_flightDetails"
+            className="detailsBtn"
             color="secondary"
             onClick={() => {
               toggle();

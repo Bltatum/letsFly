@@ -5,18 +5,16 @@ import Profile from "./Profile";
 import "./Profile.css";
 
 export const ProfileList = () => {
-  const { pilots, getPilots } = useContext(PilotsContext);
-  const userId = parseInt(localStorage.getItem("letsFly_user"));
+  const { pilots } = useContext(PilotsContext);
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-
-  //const yourProfile = pilots.find((p) => p.id === userId);
 
   const [selectedPilot, setPilot] = useState({ yourProfile: {} });
 
   const [yourProfile, setProfile] = useState([]);
   useEffect(() => {
+    const userId = parseInt(localStorage.getItem("letsFly_user"));
     setProfile(pilots.find((p) => p.id === userId));
   }, [pilots]);
 

@@ -4,11 +4,11 @@
   flex-direction: column;
   background-color: white;
   border: black solid 0.5px;
-  margin: 2rem;
+  margin: 1rem;
   display: block;
   overflow: auto;
   height: 38rem;
-  width: 100%;
+  width: 50%;
 }
 
 .flight {
@@ -17,4 +17,8 @@
   /* border: inset; */
   background-color: white;
   justify-content: space-around;
+}
+.detailsBtn {
+  width: 10rem;
+  align-self: center;
 }

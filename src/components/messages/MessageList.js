@@ -1,15 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardHeader,
-  Button,
-  UncontrolledCollapse,
-} from "reactstrap";
+import { Card, CardBody, CardHeader } from "reactstrap";
 import { MessageContext } from "./MessageProvider";
 import { PilotsContext } from "../Pilots/PilotsProvider";
 import Message from "./Message";
@@ -23,8 +13,6 @@ export const MessagesList = () => {
   const yourMessages = messages.filter(
     (m) => m.userId === userId || m.senderId === userId
   );
-
-  //   const sender = pilots.map((p) => p.id === messages.pilotId);
 
   const sortedByDateMessages = yourMessages.sort((a, b) => {
     if (a.date < b.date) {

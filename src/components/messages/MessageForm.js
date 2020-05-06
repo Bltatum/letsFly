@@ -1,12 +1,11 @@
 import React, { useRef, useContext } from "react";
-import { Button, Modal, ModalHeader, ModalBody, Form } from "reactstrap";
+import { Form } from "reactstrap";
 import { MessageContext } from "./MessageProvider";
 
 export default (props) => {
   const { addMessage } = useContext(MessageContext);
 
   const userId = parseInt(localStorage.getItem("letsFly_user"));
-  const sender = props.sender;
   const pilot = props.pilot;
   const date = Date.now();
 

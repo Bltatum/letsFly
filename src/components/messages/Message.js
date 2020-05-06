@@ -34,9 +34,9 @@ export default ({ message, sender, pilot }) => {
           </CardHeader>
           <CardBody>
             <div>{message.message}</div>
-            {/* <div> {new Date(message.date).toLocaleDateString()}</div> */}
           </CardBody>
           <Button
+            className="replyBtn"
             size="sm"
             color="secondary"
             onClick={() => {
@@ -48,6 +48,7 @@ export default ({ message, sender, pilot }) => {
           </Button>
 
           <Button
+            className="deleteBtn"
             color="danger"
             size="sm"
             onClick={() => {
@@ -88,6 +89,7 @@ export default ({ message, sender, pilot }) => {
           <CardBody>{message.message}</CardBody>
 
           <Button
+            className="deleteBtn"
             color="danger"
             size="sm"
             onClick={() => {
@@ -128,6 +130,7 @@ export default ({ message, sender, pilot }) => {
           <CardBody>{message.message}</CardBody>
 
           <Button
+            className="replyBtn"
             size="sm"
             color="secondary"
             onClick={() => {
@@ -138,6 +141,7 @@ export default ({ message, sender, pilot }) => {
             <b>Reply</b>
           </Button>
           <Button
+            className="deleteBtn"
             color="danger"
             size="sm"
             onClick={() => {

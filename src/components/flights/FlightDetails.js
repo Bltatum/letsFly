@@ -1,14 +1,5 @@
-import React, { useState, useContext } from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Card,
-  CardBody,
-  CardHeader,
-} from "reactstrap";
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import MessageForm from "../messages/MessageForm";
 
 export default ({ flight, pilot }) => {
@@ -60,8 +51,12 @@ export default ({ flight, pilot }) => {
       </div>
       <div className="flightplanlink">
         <b>Flight Plan Link:</b>{" "}
-        <a href={flight.flightPlanUrl} target="_blank">
-          <b>Click</b>
+        <a
+          href={flight.flightPlanUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <b>CLICK</b>
         </a>
       </div>
       <Button

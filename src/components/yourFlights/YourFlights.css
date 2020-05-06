@@ -12,3 +12,7 @@
 .yourFlightHeader {
   text-align: center;
 }
+.editBtn {
+  width: 6rem;
+  align-self: center;
+}

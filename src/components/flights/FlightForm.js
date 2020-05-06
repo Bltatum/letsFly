@@ -1,6 +1,6 @@
 import { FlightPlanContext } from "./FlightPlanProvider";
 import React, { useRef, useContext } from "react";
-import { Button, Modal, ModalHeader, ModalBody, Form } from "reactstrap";
+import { Form } from "reactstrap";
 
 export default (props) => {
   const { addFlightPlan } = useContext(FlightPlanContext);
@@ -38,7 +38,7 @@ export default (props) => {
       endorsements: endorsements.current.value,
       flightRulesVFR: flightRulesVFR,
       pilotId: userId,
-      flightPlanURL: flightPlanLink,
+      flightPlanUrl: flightPlanLink,
     }).then(props.toggler);
   };
 
@@ -59,12 +59,12 @@ export default (props) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="direct">IFR or VFR </label>
+        <label htmlFor="ifr">IFR or VFR </label>
         <select
           defaultValue=""
           name="direct"
           ref={flightRules}
-          id="direct"
+          id="ifr"
           className="form-control"
         >
           <option value="0">Select a option</option>

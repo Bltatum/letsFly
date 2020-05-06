@@ -18,6 +18,7 @@ export default () => {
       <div className="header">
         <img
           className="resize"
+          alt="header img"
           src=" http://i2.mirror.co.uk/incoming/article6498508.ece/ALTERNATES/s1200/Central-view-of-runway-at-Rome-Ciampino-airport-Italy.jpg"
         ></img>
       </div>

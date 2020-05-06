@@ -7,17 +7,34 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  // Separate state variable to track the animal as it is edited
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "brennen");
+    setLoading(true);
+    const res = await fetch(
+      "	https://api.cloudinary.com/v1_1/dxpkkasks/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    setImage(file.secure_url);
+    setLoading(false);
+  };
+
   const [updatedPilot, setPilot] = useState(yourProfile);
 
   const handleControlledInputChange = (event) => {
-    // Create a new copy of the Employee being edited
     const newPilot = Object.assign({}, updatedPilot);
 
-    // Change the property value on the copy
     newPilot[event.target.name] = event.target.value;
 
-    // Set the copy as the new state
     setPilot(newPilot);
   };
 
@@ -34,6 +51,7 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
       hours: updatedPilot.hours,
       baseApt: updatedPilot.baseApt,
       planeType: updatedPilot.planeType,
+      image: image ? image : updatedPilot.image,
     }).then(toggleEdit);
   };
 
@@ -142,6 +160,20 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
             defaultValue={yourProfile.planeType}
             onChange={handleControlledInputChange}
           />
+        </div>
+        <div>
+          <label htmlFor="profilePic">Profile Picture: </label>{" "}
+          <input
+            type="file"
+            name="file"
+            placeholder="Upload image here"
+            onChange={uploadImage}
+          />
+          {loading ? (
+            <h4>Loading...</h4>
+          ) : (
+            <img src={image} style={{ width: "100px" }} alt="profile pic" />
+          )}
         </div>
       </fieldset>
       <button
