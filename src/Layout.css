@@ -35,8 +35,31 @@ img.resize {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+.logout {
+  justify-content: space-between;
+  position: absolute;
+  width: 5.4rem;
+  top: 17rem;
+  left: 3.4rem;
+  transform: translate(-50%, -50%);
+}
+.footer {
+  height: 2rem;
+}
+.skyvector {
+  margin-left: 33rem;
+}
 .intro {
   display: flex;
-  border: solid;
-  height: 20rem;
+  width: 15%;
+  justify-content: space-between;
+  position: absolute;
+  top: 32rem;
+  left: 8rem;
+  transform: translate(-50%, -50%);
+  margin-top: 1rem;
+  border: solid 1px;
+  padding: 1rem;
+  overflow: auto;
 }

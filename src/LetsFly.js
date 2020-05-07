@@ -7,7 +7,7 @@ export default () => {
   const toggle = () => update(!check);
 
   return localStorage.getItem("letsFly_user") ? (
-    <Dashboard />
+    <Dashboard toggle={toggle} />
   ) : (
     <Autherization toggle={toggle} />
   );

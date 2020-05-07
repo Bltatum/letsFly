@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "reactstrap";
 import { FlightPlanProvider } from "./components/flights/FlightPlanProvider";
 import { YourFlightsList } from "./components/yourFlights/YourFlightsList";
 import { PilotsProvider } from "./components/Pilots/PilotsProvider";
@@ -10,8 +11,9 @@ import FlightList from "./components/flights/FlightList";
 import "./index.css";
 import "./Layout.css";
 import "./components/flights/Flight.css";
+import Welcome from "./components/Welcome";
 
-export default () => {
+export default ({ toggle }) => {
   return (
     <>
       <div className="header">
@@ -30,6 +32,18 @@ export default () => {
           <FlightPlanProvider>
             <PilotsProvider>
               <ProfileList />
+              <Button
+                className="logout"
+                color="secondary"
+                type="submit"
+                onClick={() => {
+                  localStorage.clear();
+                  toggle();
+                }}
+              >
+                <b>Logout</b>
+              </Button>
+              <Welcome />
               <YourFlightsList />
               <MessagesList />
               <FlightList />
@@ -38,7 +52,7 @@ export default () => {
           </FlightPlanProvider>
         </MessageProvider>
       </div>
-      <footer className="footer">
+      <div className="footer">
         <b>Brennen Tatum, NSS 2020</b>
         <a
           className="skyvector"
@@ -49,7 +63,7 @@ export default () => {
           {" "}
           <b>Make a flight plan with SkyVector</b>
         </a>
-      </footer>
+      </div>
     </>
   );
 };
