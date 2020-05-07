@@ -34,7 +34,6 @@ export const YourFlightsList = () => {
         <UncontrolledCollapse toggler="#toggler">
           <Card>
             <CardBody className="yourFlights">
-              <h3 className="yourFlightHeader">Your Upcoming Flights</h3>
               {sortedByDateFlights.map((yourFlight) => {
                 return (
                   <YourFlights

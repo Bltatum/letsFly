@@ -27,7 +27,7 @@ export default ({ flight, pilot }) => {
       <section className="flight">
         <Card>
           <CardHeader>
-            <h3 className="flight_name">{flight.tripName}</h3>
+            <h4 className="flight_name">{flight.tripName}</h4>
           </CardHeader>
           <h5 className="flight_pilot">Pilot: {pilot.name}</h5>
           <div className="flight_date">

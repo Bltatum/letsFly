@@ -26,7 +26,7 @@ export default ({ pilot }) => {
           src={pilot.image}
           style={{ width: "100px" }}
           alt="profile pic"
-          className="profilePic"
+          className="pilotPic"
         />
         <div>
           <b>Base Airport:</b> {pilot.baseApt}
