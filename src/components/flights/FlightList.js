@@ -35,7 +35,7 @@ export default () => {
     <>
       <Card className="flight_container">
         <CardHeader className="text-center">
-          <h1 className="flightHeader">Flights</h1>
+          <h2 className="flightHeader">Flights</h2>
           <Button onClick={toggle} color="secondary">
             <b>Make New Flight</b>
           </Button>

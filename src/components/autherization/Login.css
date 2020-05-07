@@ -11,14 +11,10 @@
   background-color: skyblue;
 }
 
-.h1,
-h1 {
+.welcome {
   font-size: 2.5rem;
   text-align: center;
   text-decoration: underline;
-}
-
-.welcome {
   margin-bottom: 2rem;
   margin-top: 2rem;
 }

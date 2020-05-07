@@ -172,21 +172,23 @@ export const EditProfileForm = ({ yourProfile, toggleEdit }) => {
           {loading ? (
             <h4>Loading...</h4>
           ) : (
-            <img src={image} style={{ width: "100px" }} alt="profile pic" />
+            <>
+              <img src={image} style={{ width: "100px" }} alt=" " />
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  editPilot();
+                  toggle();
+                }}
+              >
+                <b>Save Updates</b>
+              </button>
+            </>
           )}
         </div>
       </fieldset>
-      <button
-        type="submit"
-        className="btn btn-primary"
-        onClick={(evt) => {
-          evt.preventDefault();
-          editPilot();
-          toggle();
-        }}
-      >
-        <b>Save Updates</b>
-      </button>
     </form>
   );
 };

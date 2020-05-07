@@ -3,7 +3,6 @@
   overflow: auto;
   height: 38rem;
   width: 30%;
-
   border: black solid 0.5px;
   text-align: center;
   flex-direction: column;
@@ -13,9 +12,6 @@
 }
 
 .messages {
-  /* flex-basis: 28%;
-    margin: 1em;
-    padding: 1em; */
   background-color: white;
 }
 .message {
@@ -28,4 +24,7 @@
 .deleteBtn {
   width: 5rem;
   align-self: center;
+}
+.messagePic {
+  border-radius: 0.5rem;
 }

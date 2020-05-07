@@ -2,7 +2,7 @@
   display: block;
   overflow: auto;
   height: 38rem;
-  width: 30%;
+  width: 20%;
 
   border: black solid 0.5px;
   text-align: center;
@@ -25,7 +25,8 @@
   width: 7rem;
   align-self: center;
 }
-.profilePic {
+.pilotPic {
   align-self: center;
   margin-top: 0.5rem;
+  border-radius: 0.5rem;
 }

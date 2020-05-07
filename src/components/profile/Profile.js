@@ -15,6 +15,7 @@ export default ({ yourProfile }) => {
           src={yourProfile.image}
           style={{ width: "100px" }}
           alt="profile pic"
+          className="profilePic"
         />
         <div>
           <b>Username: </b>

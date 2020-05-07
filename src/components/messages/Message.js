@@ -30,7 +30,7 @@ export default ({ message, sender, pilot }) => {
       <>
         <Card className="message">
           <CardHeader>
-            <b>From: {sender.username}</b>
+            <b>{sender.username}</b> Sent you a message
           </CardHeader>
           <CardBody>
             <div>{message.message}</div>
@@ -83,8 +83,8 @@ export default ({ message, sender, pilot }) => {
     return (
       <>
         <Card className="message">
-          <CardHeader>
-            <b>To: {pilot.username}</b>
+          <CardHeader className="messageHeader">
+            Your message to <b>{pilot.username}</b>
           </CardHeader>
           <CardBody>{message.message}</CardBody>
 
