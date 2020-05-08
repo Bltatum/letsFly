@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import MessageForm from "../messages/MessageForm";
+import { FriendsContext } from "../friends/FriendsProvider";
 
 export default ({ pilot }) => {
+  const { addFriend } = useContext(FriendsContext);
+
   const [replyModal, setReplyModal] = useState(false);
   const toggleReply = () => setReplyModal(!replyModal);
 
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
   const [selectedPilot, setPilot] = useState({ pilot: {} });
+
+  const addNewFriend = () => {
+    const userId = parseInt(localStorage.getItem("letsFly_user"));
+    const friendId = pilot.id;
+    addFriend({
+      userId: userId,
+      friendId: friendId,
+    });
+  };
 
   return (
     <section className="pilot_details">
@@ -53,6 +68,17 @@ export default ({ pilot }) => {
         }}
       >
         <b>Send Message</b>
+      </Button>
+      <Button
+        size="lg"
+        color="secondary"
+        onClick={() => {
+          setPilot({ pilot });
+          addNewFriend();
+          toggle();
+        }}
+      >
+        <b>Add Friend</b>
       </Button>
 
       <Modal isOpen={replyModal} toggle={toggleReply}>

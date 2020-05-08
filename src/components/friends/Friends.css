@@ -1,0 +1,23 @@
+.friend {
+  text-align: center;
+  margin-top: 1rem;
+}
+.friends {
+  border: black solid 0.5px;
+  display: block;
+  overflow: auto;
+  height: 36rem;
+  width: 100%;
+}
+.friends_container {
+  height: 5rem;
+  margin-left: 0.5rem;
+}
+/* .friendDeleteBtn {
+  width: 4rem;
+  align-self: center;
+}
+.friendBtns {
+  display: flex;
+  justify-content: center;
+} */

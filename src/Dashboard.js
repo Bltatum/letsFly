@@ -12,6 +12,8 @@ import "./index.css";
 import "./Layout.css";
 import "./components/flights/Flight.css";
 import Welcome from "./components/Welcome";
+import { FriendsList } from "./components/friends/FriendsList";
+import { FriendsProvider } from "./components/friends/FriendsProvider";
 
 export default ({ toggle }) => {
   return (
@@ -30,25 +32,28 @@ export default ({ toggle }) => {
       <div className="mainContainer">
         <MessageProvider>
           <FlightPlanProvider>
-            <PilotsProvider>
-              <ProfileList />
-              <Button
-                className="logout"
-                color="secondary"
-                type="submit"
-                onClick={() => {
-                  localStorage.clear();
-                  toggle();
-                }}
-              >
-                <b>Logout</b>
-              </Button>
-              <Welcome />
-              <YourFlightsList />
-              <MessagesList />
-              <FlightList />
-              <PilotsList />
-            </PilotsProvider>
+            <FriendsProvider>
+              <PilotsProvider>
+                <ProfileList />
+                <Button
+                  className="logout"
+                  color="secondary"
+                  type="submit"
+                  onClick={() => {
+                    localStorage.clear();
+                    toggle();
+                  }}
+                >
+                  <b>Logout</b>
+                </Button>
+                <Welcome />
+                <YourFlightsList />
+                <FriendsList />
+                <MessagesList />
+                <FlightList />
+                <PilotsList />
+              </PilotsProvider>
+            </FriendsProvider>
           </FlightPlanProvider>
         </MessageProvider>
       </div>
