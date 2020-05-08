@@ -62,4 +62,5 @@ img.resize {
   border: solid 1px;
   padding: 1rem;
   overflow: auto;
+  border-radius: 0.25rem;
 }

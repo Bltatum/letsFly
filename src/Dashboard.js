@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "reactstrap";
 import { FlightPlanProvider } from "./components/flights/FlightPlanProvider";
 import { YourFlightsList } from "./components/yourFlights/YourFlightsList";
@@ -22,7 +22,7 @@ export default ({ toggle }) => {
           alt="header img"
           src=" http://i2.mirror.co.uk/incoming/article6498508.ece/ALTERNATES/s1200/Central-view-of-runway-at-Rome-Ciampino-airport-Italy.jpg"
         />
-        <div class="headerText" style={{ fontSize: 75 }}>
+        <div className="headerText" style={{ fontSize: 75 }}>
           Let's Fly
         </div>
       </div>

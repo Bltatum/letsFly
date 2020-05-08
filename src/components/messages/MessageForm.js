@@ -22,7 +22,10 @@ export default (props) => {
 
   return (
     <Form className="flightPlanForm">
-      <div> Your message to {pilot.username}</div>
+      <div>
+        {" "}
+        Your message to <b>{pilot.username}</b>
+      </div>
       <div className="form-group">
         <input
           type="text"

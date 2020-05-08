@@ -9,14 +9,11 @@
   height: 36rem;
   width: 100%;
 }
-.yourFlightHeader {
-  text-align: center;
-}
 .editBtn {
   width: 6rem;
   align-self: center;
 }
 .yourFlights_container {
   height: 5rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }

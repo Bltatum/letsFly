@@ -18,12 +18,15 @@
   margin-top: 0.5rem;
 }
 .replyBtn {
-  width: 6rem;
-  align-self: center;
+  width: 5rem;
 }
 .deleteBtn {
-  width: 5rem;
+  width: 4rem;
   align-self: center;
+}
+.messageButtons {
+  display: flex;
+  justify-content: center;
 }
 .messagePic {
   border-radius: 0.5rem;
