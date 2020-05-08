@@ -64,7 +64,6 @@ input[type="password"] {
 .form--login {
   font-size: 1.25rem;
   background-position-x: right;
-  /* background-image: url(logo.png); */
   z-index: 1;
   min-height: 25rem;
   min-width: 35rem;

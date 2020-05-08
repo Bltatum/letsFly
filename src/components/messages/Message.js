@@ -35,29 +35,30 @@ export default ({ message, sender, pilot }) => {
           <CardBody>
             <div>{message.message}</div>
           </CardBody>
-          <Button
-            className="replyBtn"
-            size="sm"
-            color="secondary"
-            onClick={() => {
-              setMessage({ message });
-              toggleReply();
-            }}
-          >
-            <b>Reply</b>
-          </Button>
-
-          <Button
-            className="deleteBtn"
-            color="danger"
-            size="sm"
-            onClick={() => {
-              deleteMessage(message.id);
-              toggle();
-            }}
-          >
-            <b>Delete</b>
-          </Button>
+          <div className="messageButtons">
+            <Button
+              className="deleteBtn"
+              color="danger"
+              size="sm"
+              onClick={() => {
+                deleteMessage(message.id);
+                toggle();
+              }}
+            >
+              <b>Delete</b>
+            </Button>
+            <Button
+              className="replyBtn"
+              size="sm"
+              color="secondary"
+              onClick={() => {
+                setMessage({ message });
+                toggleReply();
+              }}
+            >
+              <b>Reply</b>
+            </Button>
+          </div>
         </Card>
 
         <Modal isOpen={replyModal} toggle={toggleReply}>
