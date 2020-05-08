@@ -10,6 +10,13 @@ export default ({ pilot }) => {
 
   return (
     <section className="pilot_details">
+      <img
+        src={pilot.image}
+        style={{ width: "100px" }}
+        alt="profile pic"
+        className="pilotPic"
+      />
+      <div></div>
       <h3 className="pilot_name">{pilot.name}</h3>
       <div className="pilot_username">
         <b>Username:</b> {pilot.username}

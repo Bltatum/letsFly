@@ -29,7 +29,7 @@ export default ({ flight, pilot }) => {
           <CardHeader>
             <h4 className="flight_name">{flight.tripName}</h4>
           </CardHeader>
-          <h5 className="flight_pilot">Pilot: {pilot.name}</h5>
+          <h5 className="flight_pilot">Posted by: {pilot.username}</h5>
           <div className="flight_date">
             <b>Date:</b> {reverseDate()}
           </div>
