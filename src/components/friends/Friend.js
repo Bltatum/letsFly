@@ -2,11 +2,13 @@ import React, { useState, useContext } from "react";
 import { Button, Card, CardBody, CardHeader } from "reactstrap";
 import { FriendsContext } from "./FriendsProvider";
 
-export default ({ friend, yourFriends }) => {
+export default ({ friend }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   const { deleteFriend } = useContext(FriendsContext);
+
+  // const [unfriend, setUnfriend] = useState({ friend: {} });
 
   return (
     <>
@@ -49,7 +51,7 @@ export default ({ friend, yourFriends }) => {
             className="friendDeleteBtn"
             color="danger"
             onClick={() => {
-              deleteFriend(yourFriends.id);
+              deleteFriend(friend.id);
               toggle();
             }}
           >

@@ -39,13 +39,7 @@ export const FriendsList = () => {
           {yourFriends.map((yf) => {
             const foundPilot = pilots.find((p) => p.id === yf.friendId);
             // const yourFriend = yf.friendId === foundPilot.id;
-            return (
-              <Friend
-                key={yf.id}
-                friends={foundPilot}
-                yourFriends={yourFriends}
-              />
-            );
+            return <Friend key={yf.id} friend={foundPilot} />;
           })}
         </ModalBody>
         <ModalFooter>
