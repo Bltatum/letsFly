@@ -44,7 +44,7 @@ export default () => {
         <CardBody className="text-center">
           <div className="flights">
             {sortedByDateFlights.map((flight) => {
-              const pilot = pilots.find((p) => p.id === flight.pilotId);
+              const pilot = pilots.find((p) => p.id === flight.pilotId) || {};
               return <Flight key={flight.id} flight={flight} pilot={pilot} />;
             })}
           </div>

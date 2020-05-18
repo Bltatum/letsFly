@@ -16,6 +16,7 @@ export const SearchResults = ({ searchTerms }) => {
 
   useEffect(() => {
     if (searchTerms !== "") {
+      console.log(pilots);
       const subset = pilots.filter((pilot) =>
         pilot.username.toLowerCase().includes(searchTerms)
       );

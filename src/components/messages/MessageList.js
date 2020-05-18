@@ -33,8 +33,9 @@ export const MessagesList = () => {
         <CardBody className="text-center">
           <div className="messages">
             {sortedByDateMessages.map((message) => {
-              const sender = pilots.find((p) => p.id === message.senderId);
-              const pilot = pilots.find((p) => p.id === message.userId);
+              const sender =
+                pilots.find((p) => p.id === message.senderId) || {};
+              const pilot = pilots.find((p) => p.id === message.userId) || {};
               return (
                 <Message
                   key={message.id}
