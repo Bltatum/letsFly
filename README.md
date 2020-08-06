@@ -3,7 +3,7 @@ Lets Fly is a single page Application that easily allows Pilots to connect with 
 
 ## Installation
 
-Along with the Let's repository, you will need to clone the [LetsFlyAPI](https://github.com/Bltatum/LetsFlyAPI) repo as well which contains the data structure.
+Along with the Let's Fly repository, you will need to clone the [LetsFlyAPI](https://github.com/Bltatum/LetsFlyAPI) repo as well which contains the data structure.
 
 You will need [json-server](https://www.npmjs.com/package/json-server) installed in order to create the persistant data storage.
 
